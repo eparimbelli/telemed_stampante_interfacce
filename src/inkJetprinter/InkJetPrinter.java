@@ -11,10 +11,11 @@ package inkJetprinter;
  */
 public class InkJetPrinter {
 
-    private static final int MAXLEVEL = 1000;
+    private final int MAXLEVEL;
     private int cartridge[];
 
-    public InkJetPrinter() {
+    public InkJetPrinter(int cartridgeCapacity) {
+        this.MAXLEVEL = cartridgeCapacity;
         this.cartridge = new int[Colore.values().length];
         initCartridges();
     }
@@ -28,9 +29,9 @@ public class InkJetPrinter {
         this.cartridge[c.ordinal()] = MAXLEVEL;
     }
 
-    public void stampa(ImgVett img) {
+    public void stampa(Printable itemToPrint) {
         for (Colore c : Colore.values()) {
-            this.cartridge[c.ordinal()] -= img.getSommaAree(c);
+            this.cartridge[c.ordinal()] -= itemToPrint.getNeededInk(c);
         }
     }
     

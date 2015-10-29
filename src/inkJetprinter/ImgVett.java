@@ -11,7 +11,7 @@ import java.util.Arrays;
  *
  * @author cristiana
  */
-public class ImgVett implements Comparable<ImgVett> {
+public class ImgVett implements Comparable<ImgVett>, Printable{
 
     private static final int MAXEL = 10;
     private Forma[] elementi;
@@ -46,6 +46,11 @@ public class ImgVett implements Comparable<ImgVett> {
             }
         }
         return s;
+    }
+    
+    @Override
+    public double getNeededInk(Colore c) {
+        return getSommaAree(c);
     }
 
     @Override

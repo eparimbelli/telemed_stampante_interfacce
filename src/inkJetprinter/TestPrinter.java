@@ -12,7 +12,7 @@ package inkJetprinter;
 public class TestPrinter {
 
     public static void main(String[] args) {
-        InkJetPrinter printer = new InkJetPrinter();
+        InkJetPrinter printer = new InkJetPrinter(1000);
 
         ImgVett images[] = new ImgVett[3];
         for (int i = 0; i < images.length; i++) {
@@ -25,6 +25,7 @@ public class TestPrinter {
         images[0].addComponente(new Rettangolo(Colore.YELLOW, 5, 3));
 
         images[1].addComponente(new Cerchio(Colore.BLACK, 3));
+        images[1].addComponente(new Cerchio(Colore.BLACK, 4));
         images[1].addComponente(new Rettangolo(Colore.BLUE, 2, 2));
         images[1].addComponente(new Cerchio(Colore.YELLOW, 4));
 
