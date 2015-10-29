@@ -15,9 +15,9 @@ public class TestFoto {
 
         Foto fotos[] = new Foto[3];
         for (int i = 0; i < fotos.length-1; i++) {
-            fotos[i] = new Foto(i+3);
+            fotos[i] = new Foto(i+3, Colore.BLUE);
         }
-        fotos[fotos.length-1]=new Foto(randompixels(10));
+        fotos[fotos.length-1]=new Foto(randompixels(4));
         
 //        System.out.println(fotos[1]);
         

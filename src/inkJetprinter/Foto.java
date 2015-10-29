@@ -13,12 +13,12 @@ package inkJetprinter;
 public class Foto implements Printable{
     private Colore[][] pixels;
     
-    public Foto(int n) {
-        /* creates a nxn all-black image */
+    public Foto(int n, Colore c) {
+        /* creates a nxn image with all the pixels set to color c*/
         this.pixels = new Colore[n][n];
         for (int i=0; i<n;i++) {
             for (int j=0; j<n;j++) {
-                pixels[i][j] = Colore.BLACK;
+                pixels[i][j] = c;
             }    
         }
     }
@@ -49,7 +49,8 @@ public class Foto implements Printable{
                 } 
                 result += "\n";
         }
-        result += "]";
+        result += "]\n";
+        result += "TotalInk: R:"+getNeededInk(Colore.RED)+" B:"+getNeededInk(Colore.BLUE)+" Y:"+getNeededInk(Colore.YELLOW)+" BK:"+getNeededInk(Colore.BLACK)+"\n";
         return result;
     }
     
