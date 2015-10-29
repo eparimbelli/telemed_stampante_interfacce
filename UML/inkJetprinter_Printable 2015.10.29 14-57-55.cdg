@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="inkJetprinter">
+  <ClassDiagramComponents>
+    <Class name="InkJetPrinter" package="inkJetprinter" visibility="public" xPosition="1607.0" yPosition="264.0">
+      <Fields>
+        <Field name="MAXLEVEL" type="int" visibility="private" isFinal="true"/>
+        <Field name="cartridge" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="cartridgeCapacity"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initCartridges" returnType="void" visibility="private"/>
+        <Method name="changeCartridge" returnType="void" visibility="public">
+          <Argument type="Colore" name="c"/>
+        </Method>
+        <Method name="stampa" returnType="void" visibility="public">
+          <Argument type="Printable" name="itemToPrint"/>
+        </Method>
+        <Method name="getCartridgesLeve" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Foto" package="inkJetprinter" visibility="public" xPosition="827.0" yPosition="31.0">
+      <Fields>
+        <Field name="pixels" type="Colore[][]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="n"/>
+          <Argument type="Colore" name="c"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Colore[][]" name="pixels"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNeededInk" returnType="double" visibility="public">
+          <Argument type="Colore" name="c"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Quadrato" package="inkJetprinter" visibility="public" xPosition="990.0" yPosition="888.0">
+      <Fields>
+        <Field name="lato" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="lato"/>
+          <Argument type="Colore" name="col"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getArea" returnType="double" visibility="public"/>
+        <Method name="getPerimetro" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Forma" package="inkJetprinter" visibility="public" isAbstract="true" xPosition="862.0" yPosition="564.0">
+      <Fields>
+        <Field name="colore" type="Colore" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Colore" name="col"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getColore" returnType="Colore" visibility="public"/>
+        <Method name="compareTo" returnType="int" visibility="public">
+          <Argument type="Forma" name="o"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ImgVett" package="inkJetprinter" visibility="public" xPosition="823.0" yPosition="249.0">
+      <Fields>
+        <Field name="MAXEL" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="elementi" type="Forma[]" visibility="private"/>
+        <Field name="n" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="addComponente" returnType="void" visibility="public">
+          <Argument type="Forma" name="f"/>
+        </Method>
+        <Method name="getSommaAree" returnType="double" visibility="public"/>
+        <Method name="getSommaAree" returnType="double" visibility="public">
+          <Argument type="Colore" name="c"/>
+        </Method>
+        <Method name="getNeededInk" returnType="double" visibility="public">
+          <Argument type="Colore" name="c"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="compareTo" returnType="int" visibility="public">
+          <Argument type="ImgVett" name="o"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Cerchio" package="inkJetprinter" visibility="public" xPosition="561.0" yPosition="888.0">
+      <Fields>
+        <Field name="raggio" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Colore" name="col"/>
+          <Argument type="double" name="raggio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getArea" returnType="double" visibility="public"/>
+        <Method name="getPerimetro" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Rettangolo" package="inkJetprinter" visibility="public" xPosition="699.0" yPosition="1089.0">
+      <Fields>
+        <Field name="altezza" type="double" visibility="private"/>
+        <Field name="base" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Colore" name="col"/>
+          <Argument type="double" name="base"/>
+          <Argument type="double" name="altezza"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getArea" returnType="double" visibility="public"/>
+        <Method name="getPerimetro" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Misurabile" package="inkJetprinter" visibility="public" xPosition="526.0" yPosition="603.0">
+      <Methods>
+        <Method name="getArea" returnType="double" visibility="package"/>
+        <Method name="getPerimetro" returnType="double" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Interface name="Printable" package="inkJetprinter" visibility="public" xPosition="1234.0" yPosition="71.0">
+      <Methods>
+        <Method name="getNeededInk" returnType="double" visibility="public">
+          <Argument type="Colore" name="c"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Enum name="Colore" package="inkJetprinter" visibility="public" xPosition="1253.0" yPosition="327.0">
+      <Literals>
+        <Literal name="RED"/>
+        <Literal name="BLUE"/>
+        <Literal name="YELLOW"/>
+        <Literal name="BLACK"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="pixels" source="inkJetprinter.Foto" target="inkJetprinter.Colore" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="inkJetprinter.Forma" target="inkJetprinter.Misurabile"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="inkJetprinter.ImgVett" target="inkJetprinter.Printable"/>
+    <IsRelation name="is" source="inkJetprinter.Cerchio" target="inkJetprinter.Forma"/>
+    <UseRelation name="" source="inkJetprinter.ImgVett" target="inkJetprinter.Colore" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="inkJetprinter.Rettangolo" target="inkJetprinter.Forma"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="inkJetprinter.Foto" target="inkJetprinter.Printable"/>
+    <UseRelation source="inkJetprinter.Printable" target="inkJetprinter.Colore" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="inkJetprinter.InkJetPrinter" target="inkJetprinter.Colore" sourceCardinality="1..*" targetCardinality="0..*"/>
+    <HasRelation name="elementi" source="inkJetprinter.ImgVett" target="inkJetprinter.Forma" type="Composition" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="colore" source="inkJetprinter.Forma" target="inkJetprinter.Colore" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="inkJetprinter.Quadrato" target="inkJetprinter.Forma"/>
+    <UseRelation name="" source="inkJetprinter.InkJetPrinter" target="inkJetprinter.Printable" sourceCardinality="0..*" targetCardinality="0..*"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
