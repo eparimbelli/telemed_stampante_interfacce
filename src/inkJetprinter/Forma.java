@@ -9,7 +9,7 @@ package inkJetprinter;
  *
  * @author cristiana
  */
-public abstract class Forma implements Misurabile, Comparable<Forma> {
+public abstract class Forma implements Comparable<Forma> {
 
     private Colore colore;
 
@@ -30,5 +30,8 @@ public abstract class Forma implements Misurabile, Comparable<Forma> {
     public String toString() {
         return this.getClass().getSimpleName() +" " + this.getColore().name()+ " area="+Util.format(this.getArea());
     }
+    
+    abstract protected double getArea();
+    abstract double getPerimetro();
 
 }
